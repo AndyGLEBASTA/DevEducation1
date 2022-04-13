@@ -1,5 +1,9 @@
 package Cycles;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public interface ExStr {
     String theme = "Циклы (Задачи)\n";
     String ex1 = "1) Пользователь вводит 2 числа (A и B). Возвести число A в степень B.\n";
@@ -54,7 +58,6 @@ public interface ExStr {
     String ex23 = "23) Дано натуральное k. Напечатать k-ю цифру последовательности 1123581321..., " +
             "в которой выписаны подряд все числа Фибоначчи.\n";
     String inputStr = "Введите номер задачи:";
-
 
 
 }

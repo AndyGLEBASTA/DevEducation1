@@ -2,7 +2,7 @@ package Cycles;
 
 import java.io.IOException;
 
-public class Exercises extends InOut implements ExStr{
+public class Exercises extends InOut implements ExStr {
     public static void Ex1() throws IOException {
         System.out.print(ex1);
         int A = numInput();
@@ -172,54 +172,115 @@ if(Math.sqrt(i) % 1 == 0)
         System.out.println( " ");
     }
     public static void Ex12() throws IOException {
-        int A = Solution.numInput();
-        int B = Solution.numInput();
-        int C = A;
-        for (int i = 1; i <= B; i++)
-            C *= C * A;
-        System.out.println(C);
+        System.out.print(ex12);
+        String a = strInput();
+        String b = strInput();
+        char [] aarr = a.toCharArray();
+        char [] barr = b.toCharArray();
+        boolean flag = false;
+        for (int i = 0; i < aarr.length; i ++) {
+            for (int j = 0; j < barr.length; j++) {
+                if (aarr[i] == barr[j])
+                    flag = true;
+            }
+        }
+        if (flag)
+            System.out.println("ДА");
+        if(!flag)
+        System.out.println("НЕТ");
     }
     public static void Ex13() throws IOException {
-        int A = Solution.numInput();
-        int B = Solution.numInput();
-        int C = A;
-        for (int i = 1; i <= B; i++)
-            C *= C * A;
-        System.out.println(C);
+        System.out.print(ex13);
+        double n = DnumInput();
+        double sum = 0.0;
+       for (int i = 1; i <= n; i++){
+           sum += 1 + (1/Math.pow(i, 2.0));
+       }
+       System.out.printf ("Ответ: %.5f \n", sum);
     }
     public static void Ex14() throws IOException {
-        int A = Solution.numInput();
-        int B = Solution.numInput();
-        int C = A;
-        for (int i = 1; i <= B; i++)
-            C *= C * A;
-        System.out.println(C);
+        System.out.print(ex14);
+        double x = DnumInput();
+        int n = numInput();
+        double sum1 = 1 / x;
+        double sum2 = 0.0;
+        for (int i = 1; i <= n; i++){
+            double fac1 = x;
+            for (int ii = 1; ii <= i; ii++)
+                fac1 *= (x + ii);
+            sum1 += 1 / fac1;
+            int fac2 = 1;
+            for (int j = 1; j <= i; j++)
+                fac2 *= j;
+                sum2 += (Math.pow(x, i)) / fac2;
+        }
+        System.out.printf ("Ответ по первому примеру: %.5f \n", sum1);
+        System.out.printf ("Ответ по второму примеру: %.5f \n", sum2);
     }
     public static void Ex15() throws IOException {
-        int A = Solution.numInput();
-        int B = Solution.numInput();
-        int C = A;
-        for (int i = 1; i <= B; i++)
-            C *= C * A;
-        System.out.println(C);
+        System.out.print(ex15);
+        int n = numInput();
+        double prod1 = 1.0;
+        double sum2 = 0.0;
+        for (int i = 1; i <= n; i++){
+            double fac1 = 1.0;
+            for (int j = 1; j <= i; j++)
+                fac1 *= j;
+            prod1 *= ((2+1)/fac1);
+            double fac2 = 1.0;
+            for (int k = 1; k <= i; k++)
+                fac2 *= k;
+            sum2 += (1 + i) / fac2;
+        }
+        System.out.printf ("Ответ по первому примеру: %.5f \n", prod1);
+        System.out.printf ("Ответ по второму примеру: %.5f \n", sum2);
     }
     public static void Ex16() throws IOException {
-        int A = Solution.numInput();
-        int B = Solution.numInput();
-        int C = A;
-        for (int i = 1; i <= B; i++)
-            C *= C * A;
-        System.out.println(C);
+        System.out.print(ex16);
+        int x = numInput();
+        double sum1 = 0.0;
+        double sum2 = 0.0;
+        double sum3 = 1.0;
+        for(int i = 1; i < 1000; i++){
+            sum1 += 1 / Math.pow(i, 2);
+            sum2 += 1.0 / (i * (i + 2));
+            double fac3 = 1.0;
+            for(int j = 1; j <= i; j++)
+                fac3 *= j;
+            sum3 += Math.pow(x, i) / fac3;
+        }
+        System.out.printf ("Ответ по первому примеру: %.5f \n", sum1);
+        System.out.printf ("Ответ по второму примеру: %.5f \n", sum2);
+        System.out.printf ("Ответ по третьему примеру: %.5f \n", sum3);
     }
     public static void Ex17() throws IOException {
-        int A = Solution.numInput();
-        int B = Solution.numInput();
-        int C = A;
-        for (int i = 1; i <= B; i++)
-            C *= C * A;
-        System.out.println(C);
+        System.out.print(ex17);
+        for(int i = 10; i < 100; i++) {
+            boolean flag = false;
+            for (int j = 2; j < 10; j++) {
+                if (chkSums(i, j)) {
+                    if (flag)
+                        System.out.print(", " + j);
+                    if (!flag) {
+                        flag = true;
+                        System.out.printf("Сумма цифр числа %d не меняется при умножении на %d", i, j);
+                    }
+                }
+            }
+            if (flag)
+                System.out.println("");
+        }
     }
+    public static int sumNum (int number){
+               return  Integer.toString(number).length() == 3? (number % 10) +
+                ((number / 10) % 10) + (number / 10): (number % 10) + (number / 10);
+    }
+    public static boolean chkSums (int number, int factor){
+            return sumNum(number * factor) != sumNum(number)? false: true;
+    }
+
     public static void Ex18() throws IOException {
+        System.out.print(ex17);
         int A = Solution.numInput();
         int B = Solution.numInput();
         int C = A;
