@@ -273,44 +273,68 @@ if(Math.sqrt(i) % 1 == 0)
     }
     public static int sumNum (int number){
                return  Integer.toString(number).length() == 3? (number % 10) +
-                ((number / 10) % 10) + (number / 10): (number % 10) + (number / 10);
+                ((number / 10) % 10) + (number / 100): (number % 10) + (number / 10);
     }
     public static boolean chkSums (int number, int factor){
             return sumNum(number * factor) != sumNum(number)? false: true;
     }
 
     public static void Ex18() throws IOException {
-        System.out.print(ex17);
-        int A = Solution.numInput();
-        int B = Solution.numInput();
-        int C = A;
-        for (int i = 1; i <= B; i++)
-            C *= C * A;
-        System.out.println(C);
+        System.out.print(ex18);
+        System.out.println("Числа, представимые в виде сумм факториалов своих цифр:");
+        for (int i = 100; i < 1000; i++){
+            if (i == sum3NumFac(i))
+                System.out.print(i+ " ");
+
+        }
     }
+    public static int sum3NumFac (int number){
+        int ed = (number % 10);
+        int dec = ((number / 10) % 10);
+        int cent = (number / 100);
+        return  findFac (ed) +  findFac (dec) + findFac (cent) ;
+    }
+    public static int findFac (int number){
+        int fac = 1;
+        for(int i = 1; i <= number; i++)
+            fac *= i;
+        return  fac;
+    }
+
     public static void Ex19() throws IOException {
-        int A = Solution.numInput();
-        int B = Solution.numInput();
-        int C = A;
-        for (int i = 1; i <= B; i++)
-            C *= C * A;
-        System.out.println(C);
+        System.out.print(ex19);
+        int M = numInput();
+        boolean flag = false;
+        for (int i = 1; i <= M/2; i++){
+           if(Math.sqrt(M - i) % 1 == 0 && Math.sqrt(i) % 1 == 0 )
+               flag = true;
+        }
+        if(flag)
+        System.out.println("ДА");
+        if(!flag)
+            System.out.println("НЕТ");
     }
     public static void Ex20() throws IOException {
-        int A = Solution.numInput();
-        int B = Solution.numInput();
-        int C = A;
-        for (int i = 1; i <= B; i++)
-            C *= C * A;
-        System.out.println(C);
+        System.out.print(ex20);
+        double A = DnumInput();
+        int sumdel = 0;
+        for (int i = 1; i < A; i++){
+            if (A % i == 0)
+                sumdel += i;
+            if(i == A - 1)
+                System.out.println(sumdel == A? "ДА": "НЕТ");
+            }
     }
     public static void Ex21() throws IOException {
-        int A = Solution.numInput();
-        int B = Solution.numInput();
-        int C = A;
-        for (int i = 1; i <= B; i++)
-            C *= C * A;
-        System.out.println(C);
+        System.out.print(ex21);
+        int k = numInput();
+        char [] arr;
+        String numb = "";
+        for(int i = 1; i <= k; i++)
+            numb += Integer.toString(i);
+        arr = numb.toCharArray();
+        System.out.println(arr[k - 1]);
+
     }
     public static void Ex22() throws IOException {
         int A = Solution.numInput();
