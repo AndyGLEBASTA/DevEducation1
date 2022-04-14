@@ -1,8 +1,6 @@
 package Cycles;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
 
 public interface ExStr {
     String theme = "Циклы (Задачи)\n";

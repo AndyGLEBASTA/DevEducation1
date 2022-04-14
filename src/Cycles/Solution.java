@@ -1,8 +1,8 @@
 package Cycles;
 
-import java.io.BufferedReader;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
+
 
 public class Solution extends InOut implements ExStr {
     public static void main(String[] args) throws IOException {
@@ -40,9 +40,9 @@ public static void switcher () throws IOException {
             case "22" -> Exercises.Ex22();
             case "23" -> Exercises.Ex23();
 
-            default -> {
+            default ->
                 System.out.println("Ошибка ввода! Попробуйте ещё раз.");
-            }
+
         }
         ex = strInput();
 

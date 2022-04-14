@@ -1,6 +1,8 @@
 package Cycles;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Exercises extends InOut implements ExStr {
     public static void Ex1() throws IOException {
@@ -25,12 +27,12 @@ public class Exercises extends InOut implements ExStr {
                 System.out.print(i + " ");
             }
                     if (temp % 10 == 0 && flag) {
-                        System.out.println("");
+                        System.out.println();
                         flag = false;
                     }
         }
         if (flag)
-        System.out.println("");
+        System.out.println();
     }
     public static void Ex3() throws IOException {
         System.out.print(ex3);
@@ -178,10 +180,12 @@ if(Math.sqrt(i) % 1 == 0)
         char [] aarr = a.toCharArray();
         char [] barr = b.toCharArray();
         boolean flag = false;
-        for (int i = 0; i < aarr.length; i ++) {
-            for (int j = 0; j < barr.length; j++) {
-                if (aarr[i] == barr[j])
+        for (char c : aarr) {
+            for (char value : barr) {
+                if (c == value) {
                     flag = true;
+                    break;
+                }
             }
         }
         if (flag)
@@ -253,7 +257,7 @@ if(Math.sqrt(i) % 1 == 0)
         System.out.printf ("Ответ по второму примеру: %.5f \n", sum2);
         System.out.printf ("Ответ по третьему примеру: %.5f \n", sum3);
     }
-    public static void Ex17() throws IOException {
+    public static void Ex17() {
         System.out.print(ex17);
         for(int i = 10; i < 100; i++) {
             boolean flag = false;
@@ -268,7 +272,7 @@ if(Math.sqrt(i) % 1 == 0)
                 }
             }
             if (flag)
-                System.out.println("");
+                System.out.println();
         }
     }
     public static int sumNum (int number){
@@ -276,10 +280,10 @@ if(Math.sqrt(i) % 1 == 0)
                 ((number / 10) % 10) + (number / 100): (number % 10) + (number / 10);
     }
     public static boolean chkSums (int number, int factor){
-            return sumNum(number * factor) != sumNum(number)? false: true;
+            return sumNum(number * factor) == sumNum(number);
     }
 
-    public static void Ex18() throws IOException {
+    public static void Ex18() {
         System.out.print(ex18);
         System.out.println("Числа, представимые в виде сумм факториалов своих цифр:");
         for (int i = 100; i < 1000; i++){
@@ -337,20 +341,25 @@ if(Math.sqrt(i) % 1 == 0)
 
     }
     public static void Ex22() throws IOException {
-        int A = Solution.numInput();
-        int B = Solution.numInput();
-        int C = A;
-        for (int i = 1; i <= B; i++)
-            C *= C * A;
-        System.out.println(C);
+        System.out.print(ex22);
+        int k = numInput();
+        char [] arr;
+        String numb = "";
+        for(int i = 1; i <= k; i++)
+            numb += Integer.toString((int)Math.pow(i, 2));
+        arr = numb.toCharArray();
+        System.out.println(arr[k - 1]);
     }
     public static void Ex23() throws IOException {
-        int A = Solution.numInput();
-        int B = Solution.numInput();
-        int C = A;
-        for (int i = 1; i <= B; i++)
-            C *= C * A;
-        System.out.println(C);
+        System.out.print(ex23);
+        int k = numInput();
+        ArrayList <Integer> arrInt = new ArrayList(Arrays.asList(1, 1));
+        String numb = "";
+        for(int i = 1; i <= k; i++)
+            arrInt.add(arrInt.get(arrInt.size()-2) + arrInt.get(arrInt.size()-1));
+        for (Integer integer : arrInt)
+            numb += Integer.toString(integer);
+        System.out.println(numb.toCharArray()[k - 1]);
     }
 
 }
