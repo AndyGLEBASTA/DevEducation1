@@ -20,6 +20,7 @@ public class Solution {
         System.out.println("Сумма элементов массива с нечетными индексами: " + sumOddInd(arr));
         System.out.println("Реверс массива:");
         printArr(reverse(arr));
+        System.out.println("Кол-во нечётных элементов массива: " + isOddSum(arr));
 
 
     }
@@ -108,6 +109,16 @@ int k = 0;
             k++;
         }
             return revarr;
+    }
+    public static int isOddSum (int [] arr){
+        int k = 0;
+        for (int j : arr) {
+
+            if (j % 2 != 0)
+                k++;
+        }
+
+        return k;
     }
 
 
