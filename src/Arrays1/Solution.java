@@ -18,7 +18,8 @@ public class Solution {
         System.out.println("Индекс мин элемента: " + indexMin(arr));
         System.out.println("Индекс макс элемента: " + indexMax(arr));
         System.out.println("Сумма элементов массива с нечетными индексами: " + sumOddInd(arr));
-
+        System.out.println("Реверс массива:");
+        printArr(reverse(arr));
 
 
     }
@@ -93,12 +94,22 @@ public class Solution {
 
             System.out.print(j + " ");
         }
-            System.out.println();
+        System.out.println();
 
     }
     public static void printNum (int min){
         System.out.println(min);
     }
+    public static int [] reverse (int []arr ) {
+int [] revarr = new int[arr.length];
+int k = 0;
+        for (int i = arr.length - 1; i >= 0; i--){
+            revarr[k] = arr [i];
+            k++;
+        }
+            return revarr;
+    }
+
 
 }
 
