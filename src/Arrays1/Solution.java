@@ -23,6 +23,8 @@ public class Solution {
         System.out.println("Кол-во нечётных элементов массива: " + isOddSum(arr));
         System.out.println("Массив после замены местами первой и второй половины массива:");
         printArr(mirror(arr));
+        System.out.println("Массив по возрастанию:");
+        printArr(sortUp(arr));
 
 
     }
@@ -133,5 +135,22 @@ int k = 0;
 
         return arrtemp;
     }
+    public static int [] sortUp (int [] arr){
+        int [] temparr = arr;
+        int temp = 0;
+        for (int i = 0; i < temparr.length; i++) {
+            int max = temparr [i];
+            for (int j = 0; j < temparr.length; j++) {
+                if (temparr[i] < temparr[j]) {
+                    max = temparr[j];
+                    temp = temparr[i];
+                    temparr[i]=temparr[j];
+                    temparr[j]=temp;
+                }
+            }
+        }
+        return temparr;
+    }
+
 }
 
