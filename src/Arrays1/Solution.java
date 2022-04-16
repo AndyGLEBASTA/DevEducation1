@@ -21,6 +21,8 @@ public class Solution {
         System.out.println("Реверс массива:");
         printArr(reverse(arr));
         System.out.println("Кол-во нечётных элементов массива: " + isOddSum(arr));
+        System.out.println("Массив после замены местами первой и второй половины массива:");
+        printArr(mirror(arr));
 
 
     }
@@ -120,7 +122,16 @@ int k = 0;
 
         return k;
     }
+    public static int [] mirror (int [] arr){
+        int temp;
+        int [] arrtemp = arr;
+        for(int i = 0; i < arrtemp.length/2; i++){
+            temp = arrtemp[i];
+            arrtemp[i] = arrtemp[(int)Math.ceil((double)arrtemp.length/2) + i];
+            arrtemp[(int)Math.ceil((double)arrtemp.length/2) + i] = temp;
+        }
 
-
+        return arrtemp;
+    }
 }
 
