@@ -20,7 +20,7 @@ double radius;
     public String toString() {
 
      return String.format("Мы создали %s с длиной окружности %.2f и площадью %.2f",
-             getClass().toString(), getPerimetr(),getArea());
+             getClass().toString().substring(14), getPerimetr(),getArea());
     }
 
     @Override

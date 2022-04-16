@@ -1,11 +1,14 @@
 package Figures;
 
+import Figures.Creators.Creator;
+
 import java.util.ArrayList;
-import java.util.List;
+import Figures.Creators.Creator;
 import java.util.Arrays;
 
 public class Solution {
     public static void main(String[] args) {
+        Creator a = new Creator();
 
         Point p1 = new Point (0, 0);
         Point p2 = new Point (0, 1);
@@ -15,10 +18,9 @@ public class Solution {
 
         ArrayList <Point> nPoint1 = new ArrayList(Arrays.asList(p1, p2, p3));
         ArrayList <Point> nPoint2 = new ArrayList(Arrays.asList(p1, p2));
+        a.create(nPoint1);
 
 
-        Nangle Triangle = new Nangle(nPoint1);
-        Cycle cycle = new Cycle(nPoint2);
 
     }
 }
