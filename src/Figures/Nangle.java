@@ -1,5 +1,6 @@
 package Figures;
 
+
 import java.util.ArrayList;
 
 public class Nangle extends Figure {

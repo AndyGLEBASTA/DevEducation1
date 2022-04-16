@@ -1,6 +1,6 @@
 package Figures.Creators;
 
-import Figures.Cycle;
+
 import Figures.Figure;
 import Figures.Point;
 import Figures.Rectangle;

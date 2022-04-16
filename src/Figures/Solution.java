@@ -2,11 +2,12 @@ package Figures;
 
 import Figures.Creators.Creator;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Solution {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Creator a = new Creator();
 
         Point p1 = new Point (0, 0);
@@ -19,6 +20,8 @@ public class Solution {
         ArrayList <Point> nPoint2 = new ArrayList(Arrays.asList(p1, p2));
         Figure newF = a.create(nPoint2);
         System.out.println(newF);
+        newF.OutPut();
+        newF.InPut();
 
 
 

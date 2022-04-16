@@ -11,10 +11,10 @@ public class Rectangle extends Figure{
         String Points = null;
         for (Point x : this.nPoint){
             if (Points == null) {
-                Points = String.valueOf(x) +"\n";
+                Points = x +"\n";
             }
             else {
-                Points += String.valueOf(x) + "\n";
+                Points += x + "\n";
             }
         }
 

@@ -6,5 +6,5 @@ import Figures.Point;
 import java.util.ArrayList;
 
 public interface iFigureCreator {
-public Figure create (ArrayList <Point> points);
+ Figure create (ArrayList <Point> points);
 }

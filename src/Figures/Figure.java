@@ -1,18 +1,22 @@
 package Figures;
 
+import java.io.*;
 import java.util.ArrayList;
 
 public abstract class Figure {
     protected ArrayList<Point> nPoint;
     protected String color;
+    public Figure(ArrayList <Point> nPoint) {
+        this.nPoint = pointNear(nPoint);
+            }
     public String toString(){
         String Points = null;
         for (Point x : this.nPoint){
             if (Points == null) {
-                Points = String.valueOf(x) +"\n";
+                Points = x +"\n";
             }
             else {
-                Points += String.valueOf(x) + "\n";
+                Points += x + "\n";
             }
         }
 
@@ -32,10 +36,7 @@ public abstract class Figure {
     protected double getLineSize(Point one, Point two) {
         return Math.sqrt((Math.pow((two.getX() - one.getX()), 2) + Math.pow((two.getY() - one.getY()), 2)));
     }
-    public Figure(ArrayList <Point> nPoint){
-        this.nPoint = pointNear(nPoint);
 
-    }
     public ArrayList<Point> pointNear(ArrayList<Point> nPoint) {
         ArrayList<Point> newPoint = nPoint;
 
@@ -74,5 +75,22 @@ area += nPoint.get(i).getX() * nPoint.get(temp).getY() - nPoint.get(i).getY() * 
     public void setColor (String color){
         this.color = color;
     }
+
+    public void OutPut() throws IOException {
+        FileOutputStream stream = new FileOutputStream("c:/result.txt", true);
+        String name = getClass().toString();
+        byte [] arr = name.getBytes();
+            stream.write(arr, 0, arr.length);
+            stream.close();
+    }
+    public void InPut() throws IOException {
+
+        FileInputStream stream = new FileInputStream("c:/result.txt");
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    baos.write(stream.readAllBytes());
+                    System.out.println(baos);
+        stream.close();
+    }
+
 
 }
