@@ -3,7 +3,6 @@ package Figures;
 import Figures.Creators.Creator;
 
 import java.util.ArrayList;
-import Figures.Creators.Creator;
 import java.util.Arrays;
 
 public class Solution {
@@ -16,9 +15,10 @@ public class Solution {
         Point p4 = new Point (4, 4);
         Point p5 = new Point (9, 12);
 
-        ArrayList <Point> nPoint1 = new ArrayList(Arrays.asList(p1, p2, p3));
+        ArrayList <Point> nPoint1 = new ArrayList(Arrays.asList(p1, p2, p3, p4));
         ArrayList <Point> nPoint2 = new ArrayList(Arrays.asList(p1, p2));
-        a.create(nPoint1);
+        Figure newF = a.create(nPoint2);
+        System.out.println(newF);
 
 
 

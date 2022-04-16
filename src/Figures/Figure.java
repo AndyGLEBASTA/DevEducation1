@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public abstract class Figure {
     protected ArrayList<Point> nPoint;
+    protected String color;
     public String toString(){
         String Points = null;
         for (Point x : this.nPoint){
@@ -16,8 +17,8 @@ public abstract class Figure {
         }
 
         return String.format("Мы создали %d-угольник с точками:\n" +
-                "%sС периметром: %.2f\n" + "С площадью: %.2f\n",
-                nPoint.size(), Points, getPerimetr(), getArea());
+                "%sС периметром: %.2f\n" + "С площадью: %.2f\n С цветом:%s",
+                nPoint.size(), Points, getPerimetr(), getArea(), color);
     }
 
     /*public abstract void getSquare();*/
@@ -33,7 +34,7 @@ public abstract class Figure {
     }
     public Figure(ArrayList <Point> nPoint){
         this.nPoint = pointNear(nPoint);
-        System.out.println(this.toString()) ;
+
     }
     public ArrayList<Point> pointNear(ArrayList<Point> nPoint) {
         ArrayList<Point> newPoint = nPoint;
@@ -65,4 +66,13 @@ area += nPoint.get(i).getX() * nPoint.get(temp).getY() - nPoint.get(i).getY() * 
         }
         return Math.abs(area/2);
     }
+
+    public String getColor() {
+        return this.color;
+    }
+
+    public void setColor (String color){
+        this.color = color;
+    }
+
 }

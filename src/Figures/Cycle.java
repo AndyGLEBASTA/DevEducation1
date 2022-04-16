@@ -19,8 +19,8 @@ double radius;
     @Override
     public String toString() {
 
-     return String.format("Мы создали %s с длиной окружности %.2f и площадью %.2f",
-             getClass().toString().substring(14), getPerimetr(),getArea());
+     return String.format("Мы создали %s с длиной окружности %.2f и площадью %.2f. Цвет: %s",
+             getClass().toString().substring(14), getPerimetr(),getArea(), getColor());
     }
 
     @Override
