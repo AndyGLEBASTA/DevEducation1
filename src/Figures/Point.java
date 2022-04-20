@@ -29,6 +29,9 @@ public class Point {
 
     @Override
     public String toString() {
-        return String.format("Точка ( %.2f; %.2f)", x, y);
+        return String.format("Точка (%.2f; %.2f)", x, y);
+    }
+    public String toStringFile(){
+        return String.format("(%.2f; %.2f) ", x, y);
     }
 }

@@ -2,6 +2,7 @@ package Figures;
 
 import java.io.*;
 import java.util.ArrayList;
+import Figures.Creators.*;
 
 public abstract class Figure {
     protected ArrayList<Point> nPoint;
@@ -77,8 +78,13 @@ area += nPoint.get(i).getX() * nPoint.get(temp).getY() - nPoint.get(i).getY() * 
     }
 
     public void OutPut() throws IOException {
-        FileOutputStream stream = new FileOutputStream("c:/result.txt", true);
-        String name = getClass().toString().substring(14) + "\n";
+        FileOutputStream stream = new FileOutputStream("c:/result.txt", false);
+
+        var result = new Object(){
+            String name = "";
+        };
+        this.nPoint.forEach(r -> {result.name += r.toStringFile();});
+        String name = getClass().toString().substring(14) + ": " + result.name + "\n";
         byte [] arr = name.getBytes();
             stream.write(arr, 0, arr.length);
             stream.close();
@@ -91,6 +97,8 @@ area += nPoint.get(i).getX() * nPoint.get(temp).getY() - nPoint.get(i).getY() * 
                     System.out.println(baos);
         stream.close();
     }
+
+
 
 
 }

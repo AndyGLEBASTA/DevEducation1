@@ -6,7 +6,7 @@ public class Solution {
 
     public static void main(String[] args) {
 
-        int [][]arr = inputArray(5,5,0,99);
+        int [][]arr = inputArray(4,6,0,99);
         int min = findMin(arr);
         int max = findMax(arr);
         System.out.println("Массив:");
@@ -19,7 +19,11 @@ public class Solution {
         System.out.println("Индекс макс элемента: " + indexMax(arr));
 
         printNum(allAlphas(arr));
-        mirror(arr);
+        int [][]arr2 = inputArray(5,5,0,99);
+        System.out.println("Новый квадратный ассив:");
+        printArr(arr);
+        mirror(arr2);
+
 
     }
     public static int [][] inputArray (int n, int m, int a, int b){
@@ -97,7 +101,7 @@ public class Solution {
                     && arr[i][0] > arr[i + 1][1]
                     && arr[i][0] > arr[i - 1][1]
                     && arr[i][0] > arr[i][1]) {
-                System.out.println(String.format("[%d][0]", i));
+                System.out.printf("[%d][0]%n", i);
                 allA++;
             }
         }
@@ -107,7 +111,7 @@ public class Solution {
                     && arr[i][y - 1] > arr[i + 1][y - 2]
                     && arr[i][y - 1] > arr[i - 1][y - 2]
                     && arr[i][y - 1] > arr[i][y - 2]) {
-                System.out.println(String.format("[%d][%d]", i, y - 1));
+                System.out.printf("[%d][%d]%n", i, y - 1);
                 allA++;
             }
         }
@@ -118,7 +122,7 @@ public class Solution {
                     && arr[0][i] > arr[1][i - 1]
                     && arr[0][i] > arr[1][i]) {
 
-                System.out.println(String.format("[0][%d]", i));
+                System.out.printf("[0][%d]%n", i);
                 allA++;
             }
         }
@@ -130,7 +134,7 @@ public class Solution {
                     && arr[x - 1][i] > arr[x - 2][i - 1] )
 
             {
-                System.out.println(String.format("[%d][%d]", x - 1, i));
+                System.out.printf("[%d][%d]%n", x - 1, i);
                 allA++;
             }
         }
@@ -143,7 +147,7 @@ public class Solution {
                         && arr[i][j] > arr [i + 1][j + 1] && arr[i][j] > arr [i - 1][j - 1]
                         && arr[i][j] > arr [i - 1][j + 1] && arr[i][j] > arr [i + 1][j - 1]) {
 
-                    System.out.println(String.format("[%d][%d]", i, j));
+                    System.out.printf("[%d][%d]%n", i, j);
 
 
                     allA++;
@@ -160,21 +164,21 @@ public class Solution {
                 && arr[0][y - 1] > arr [1][y - 1]
                 && arr[0][y - 1] > arr [1][y - 2])
         {
-            System.out.println(String.format("[0][%d]",y - 1));
+            System.out.printf("[0][%d]%n",y - 1);
             allA++;
         }
         if (arr[x - 1][0] > arr [x - 1][1]
                 && arr[x - 1][0] > arr [x - 2][0]
                 && arr[x - 1][0] > arr [x - 2][1])
         {
-            System.out.println(String.format("[%d][0]", x - 1));
+            System.out.printf("[%d][0]%n", x - 1);
             allA++;
         }
         if (arr[x - 1][y - 1] > arr [x - 2][y - 1]
                 && arr[x - 1][y - 1] > arr [x - 1][y - 2]
                 && arr[x - 1][y - 1] > arr [x - 2][y - 2])
         {
-            System.out.println(String.format("[%d][%d]", x - 1, y - 1));
+            System.out.printf("[%d][%d]%n", x - 1, y - 1);
             allA++;
         }
 
@@ -187,7 +191,7 @@ public class Solution {
             for (int j = 0; j < arr[i].length; j++){
                 System.out.print(arr[i][j] + " ");
             }
-            System.out.println("");
+            System.out.println();
         }
     }
     public static void printNum (int min){
