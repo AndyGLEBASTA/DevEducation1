@@ -25,6 +25,8 @@ public class Solution {
         printArr(mirror(arr));
         System.out.println("Массив по возрастанию:");
         printArr(sortUp(arr));
+        System.out.println("Массив по убыванию:");
+        printArr(sortDown(arr));
 
 
     }
@@ -137,20 +139,37 @@ int k = 0;
     }
     public static int [] sortUp (int [] arr){
         int [] temparr = arr;
-        int temp = 0;
+        int temp;
         for (int i = 0; i < temparr.length; i++) {
-            int max = temparr [i];
-            for (int j = 0; j < temparr.length; j++) {
-                if (temparr[i] < temparr[j]) {
-                    max = temparr[j];
-                    temp = temparr[i];
-                    temparr[i]=temparr[j];
-                    temparr[j]=temp;
+            int minIn = i;
+            for (int j = i; j < temparr.length; j++) {
+                if (temparr[j] < temparr[minIn]) {
+                    minIn = j;
                 }
             }
+            temp = temparr[i];
+            temparr[i]=temparr[minIn];
+            temparr[minIn]=temp;
         }
         return temparr;
     }
+    public static int[] sortDown (int [] arr){
+        int [] temparr = arr;
+        for(int i = 0; i < temparr.length; i++){
+            int temp = temparr[i];
+            int j = i - 1;
+            while (j >= 0 && temp > temparr[j]){
+                if (temp > temparr[j]){
+                    temparr [j + 1] = temparr [j];
+                    j--;
+                }
+
+            }
+            temparr [j+1] = temp;
+        }
+        return temparr;
+    }
+
 
 }
 

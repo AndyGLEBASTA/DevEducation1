@@ -78,7 +78,7 @@ area += nPoint.get(i).getX() * nPoint.get(temp).getY() - nPoint.get(i).getY() * 
 
     public void OutPut() throws IOException {
         FileOutputStream stream = new FileOutputStream("c:/result.txt", true);
-        String name = getClass().toString();
+        String name = getClass().toString().substring(14) + "\n";
         byte [] arr = name.getBytes();
             stream.write(arr, 0, arr.length);
             stream.close();
