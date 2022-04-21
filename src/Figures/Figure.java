@@ -2,7 +2,7 @@ package Figures;
 
 import java.io.*;
 import java.util.ArrayList;
-import Figures.Creators.*;
+
 
 public abstract class Figure {
     protected ArrayList<Point> nPoint;
@@ -16,15 +16,17 @@ public abstract class Figure {
             if (Points == null) {
                 Points = x +"\n";
             }
-            else {
-                Points += x + "\n";
-            }
+            else Points += x + "\n";
         }
 
-        return String.format("Мы создали %d-угольник с точками:\n" +
-                "%sС периметром: %.2f\n" + "С площадью: %.2f\n С цветом:%s",
+        return String.format("""
+                        Мы создали %d-угольник с точками:
+                        %sС периметром: %.2f
+                        С площадью: %.2f
+                         С цветом:%s""",
                 nPoint.size(), Points, getPerimetr(), getArea(), color);
     }
+
 
     /*public abstract void getSquare();*/
     protected double getPerimetr() {
@@ -35,6 +37,7 @@ public abstract class Figure {
         return res;
     }
     protected double getLineSize(Point one, Point two) {
+
         return Math.sqrt((Math.pow((two.getX() - one.getX()), 2) + Math.pow((two.getY() - one.getY()), 2)));
     }
 
@@ -43,21 +46,23 @@ public abstract class Figure {
 
         for (int i = 0; i < newPoint.size() - 1; i++) {
             double short1 = getLineSize(newPoint.get(i), newPoint.get(i + 1));
+
             Point temp = newPoint.get(i);
             int tempInd = i;
-            for (int j = 1; j < newPoint.size() - 1; j++) {
+            for (int j = i + 1; j < newPoint.size() ; j++) {
                 double nearLine = getLineSize(newPoint.get(i), newPoint.get(j));
                 if (nearLine <= short1) {
                     short1 = nearLine;
                     temp = newPoint.get(j);
                     tempInd = j;
                 }
-                if (j == newPoint.size() - 2) {
+                if (j == newPoint.size() - 1) {
                     newPoint.remove(tempInd);
                     newPoint.add(i + 1, temp);
                 }
             }
         }
+
         return newPoint;
     }
     protected double getArea(){
@@ -83,7 +88,7 @@ area += nPoint.get(i).getX() * nPoint.get(temp).getY() - nPoint.get(i).getY() * 
         var result = new Object(){
             String name = "";
         };
-        this.nPoint.forEach(r -> {result.name += r.toStringFile();});
+        this.nPoint.forEach(r -> result.name += r.toStringFile());
         String name = getClass().toString().substring(14) + ": " + result.name + "\n";
         byte [] arr = name.getBytes();
             stream.write(arr, 0, arr.length);
@@ -97,6 +102,34 @@ area += nPoint.get(i).getX() * nPoint.get(temp).getY() - nPoint.get(i).getY() * 
                     System.out.println(baos);
         stream.close();
     }
+    public Point findBarCentre (){     // Определение местоположения барицентра для конечного множества точек
+        ArrayList <Point> buffer = this.nPoint;
+        double x = 0.0;
+        double y = 0.0;
+        int k = 0;
+        for(Point temp: buffer){
+            k++;
+            x += temp.getX();
+            y += temp.getY();
+        }
+        return new Point (x / k , y / k);
+    }
+    public void rotate (double ang){
+        ArrayList <Point> buffer = this.nPoint;
+        Point centre = this.findBarCentre();
+        double xC = centre.getX();
+        double yC = centre.getY();
+        if (ang > 0 && ang < 360){
+                buffer.replaceAll( x -> {double a = x.getX() - xC; double b = x.getY() - yC;
+                    x.setX(xC + a * Math.cos(Math.toRadians(ang)) - b * Math.sin(Math.toRadians(ang)));
+                    x.setY(yC + a * Math.sin(Math.toRadians(ang)) + b * Math.cos(Math.toRadians(ang)));
+                    return x;});
+            this.nPoint = buffer;
+        }
+        else
+            System.out.println("Ошибка ввода градусов!");
+    }
+
 
 
 
