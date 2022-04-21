@@ -114,7 +114,9 @@ area += nPoint.get(i).getX() * nPoint.get(temp).getY() - nPoint.get(i).getY() * 
         }
         return new Point (x / k , y / k);
     }
-    public void rotate (double ang){
+    public void rotate (double ang){ //поворот фигуры через поворот точек по формуле:
+                                     // X'=Xo+(X1-Xo)∗cos(ϕ)−(Y1-Yo)∗sin(ϕ)
+                                     // Y'=Yo +(X1-Xo)∗sin(ϕ)+(Y1-Yo)∗cos(ϕ)
         ArrayList <Point> buffer = this.nPoint;
         Point centre = this.findBarCentre();
         double xC = centre.getX();
