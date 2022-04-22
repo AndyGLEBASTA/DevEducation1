@@ -113,6 +113,7 @@ area += nPoint.get(i).getX() * nPoint.get(temp).getY() - nPoint.get(i).getY() * 
             y += temp.getY();
         }
         return new Point (x / k , y / k);
+
     }
     public void rotate (double ang){ //поворот фигуры через поворот точек по формуле:
                                      // X'=Xo+(X1-Xo)∗cos(ϕ)−(Y1-Yo)∗sin(ϕ)

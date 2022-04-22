@@ -26,6 +26,18 @@ public class Solution {
 
 
     }
+
+    public static void printArr(int [][]arr ){
+        for (int i = 0;  i < arr.length; i++){
+            for (int j = 0; j < arr[i].length; j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+    public static void printNum (int min){
+        System.out.println(min);
+    }
     public static int [][] inputArray (int n, int m, int a, int b){
 
         int [][ ] arr = new int[n][m];
@@ -37,7 +49,7 @@ public class Solution {
         }
         return arr;
     }
-    public static int findMin (int [][] arr) {
+    public static int findMin (int [][] arr) { // 1-ое задание
         int x = arr.length;
         int y = arr[0].length;
         int min = arr [0] [0];
@@ -51,7 +63,7 @@ public class Solution {
         return min;
     }
 
-    public static int findMax (int [][] arr) {
+    public static int findMax (int [][] arr) { // 2-ое задание
         int x = arr.length;
         int y = arr[0].length;
         int max = arr [0] [0];
@@ -64,7 +76,7 @@ public class Solution {
         }
         return max;
     }
-    public static String indexMin (int [][] arr){
+    public static String indexMin (int [][] arr){ // 3-ое задание
         String iMin = null;
         int x = arr.length;
         int y = arr[0].length;
@@ -77,7 +89,7 @@ public class Solution {
         }
         return iMin;
     }
-    public static String indexMax (int [][] arr){
+    public static String indexMax (int [][] arr){ // 4-ое задание
         int x = arr.length;
         int y = arr[0].length;
         String iMax = null;
@@ -90,7 +102,7 @@ public class Solution {
         }
         return iMax;
     }
-    public static int allAlphas (int [][] arr){
+    public static int allAlphas (int [][] arr){ // 5-ое задание
         int allA = 0;
         int x = arr.length;
         int y = arr[0].length;
@@ -186,19 +198,8 @@ public class Solution {
         return allA;
     }
 
-    public static void printArr(int [][]arr ){
-        for (int i = 0;  i < arr.length; i++){
-            for (int j = 0; j < arr[i].length; j++){
-                System.out.print(arr[i][j] + " ");
-            }
-            System.out.println();
-        }
-    }
-    public static void printNum (int min){
-        System.out.println(min);
-    }
 
-    public static void mirror (int [][] arr) {
+    public static void mirror (int [][] arr) { // 6-ое задание
         int [][] arrm = arr;
         int x = arrm.length;
         int y = arrm[0].length;
@@ -215,6 +216,22 @@ public class Solution {
         System.out.println("Массив отражённый:");
         printArr(arrm);
     }
+public void spiral (){
+        int [][] arr =  {{1   , 2  ,  3,    4  ,  5 ,   6},
+                         {20,   21,   22 ,  23 ,  24 ,  7},
+                         {19 ,  32 ,  33 ,  34 ,  25  , 8},
+                         {18   ,31,   36  , 35 ,  26,   9},
+                         {17 ,  30,   29 ,  28 ,  27,  10},
+                         {16,	15 ,  14,   13,   12 , 11} };
+        int [][] buf = arr;
+        int x = buf[0].length;
+        int y = buf.length;
+
+        for (int i = 0; i < y; i++){
+
+        }
+
+}
 
 
 }
