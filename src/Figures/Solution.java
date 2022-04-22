@@ -20,15 +20,16 @@ public class Solution {
         ArrayList <Point> nPoint2 = new ArrayList(Arrays.asList(p1, p2));
         Figure newF = fabric.create(nPoint1);
         System.out.println(newF);
-        newF.rotate(115);
+        newF.move(3, 2.5);
         System.out.println(newF);
+        newF.rotate(115);
+        if (newF.nPoint.size() > 2) System.out.println(newF);
+        newF.multi(0.5);
+
         newF.OutPut();
         newF.InPut();
         System.out.println("Запарсили из result.txt:");
         Figure FromFile = fabric.createFromFile();
         System.out.println(FromFile);
-
-
-
     }
 }

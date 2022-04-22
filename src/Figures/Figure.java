@@ -118,18 +118,35 @@ area += nPoint.get(i).getX() * nPoint.get(temp).getY() - nPoint.get(i).getY() * 
                                      // X'=Xo+(X1-Xo)∗cos(ϕ)−(Y1-Yo)∗sin(ϕ)
                                      // Y'=Yo +(X1-Xo)∗sin(ϕ)+(Y1-Yo)∗cos(ϕ)
         ArrayList <Point> buffer = this.nPoint;
-        Point centre = this.findBarCentre();
-        double xC = centre.getX();
-        double yC = centre.getY();
-        if (ang > 0 && ang < 360){
+
+        if (ang > 0 && ang < 360 && buffer.size() > 2){
+            Point centre = this.findBarCentre();
+            double xC = centre.getX();
+            double yC = centre.getY();
                 buffer.replaceAll( x -> {double a = x.getX() - xC; double b = x.getY() - yC;
                     x.setX(xC + a * Math.cos(Math.toRadians(ang)) - b * Math.sin(Math.toRadians(ang)));
                     x.setY(yC + a * Math.sin(Math.toRadians(ang)) + b * Math.cos(Math.toRadians(ang)));
                     return x;});
             this.nPoint = buffer;
         }
+        else if (buffer.size() == 2) System.out.println("Круг есть круг, что его крутить то!");
         else
             System.out.println("Ошибка ввода градусов!");
+    }
+    public void multi (double factor){
+        ArrayList <Point> buffer = this.nPoint;
+        Point centre = this.findBarCentre();
+        double xC = centre.getX();
+        double yC = centre.getY();
+        buffer.replaceAll(x -> {x.setX((x.getX() - xC) * factor + xC);
+            x.setY((x.getY() - yC) * factor + yC); return x;});
+
+    }
+    public void move (double x, double y){
+        ArrayList <Point> buffer = this.nPoint;
+        buffer.replaceAll(point -> {point.setX((point.getX() + x));
+            point.setY(point.getY() + y); return point;});
+        this.nPoint = buffer;
     }
 
 
