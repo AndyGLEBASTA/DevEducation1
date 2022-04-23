@@ -1,8 +1,6 @@
 package Figures.Creators;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 import Figures.Figure;
@@ -30,7 +28,7 @@ public class Creator implements iFigureCreator {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         baos.write(stream.readAllBytes());
         String temp = baos.toString();
-        temp = temp.replaceAll(",", ".");
+        temp = temp.trim().replaceAll(",", ".");
         while(temp.contains(".")) {
             int index = temp.indexOf(".");
             int index2 = temp.indexOf("(");
@@ -46,4 +44,5 @@ public class Creator implements iFigureCreator {
         stream.close();
         return this.create(nPoint);
     }
+
 }

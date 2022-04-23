@@ -1,10 +1,12 @@
 package Figures;
 
+import Figures.Creators.Creator;
+
 import java.io.*;
 import java.util.ArrayList;
 
 
-public abstract class Figure {
+public abstract class Figure implements Serializable{
     protected ArrayList<Point> nPoint;
     protected String color;
     public Figure(ArrayList <Point> nPoint) {
@@ -25,6 +27,10 @@ public abstract class Figure {
                         С площадью: %.2f
                          С цветом:%s""",
                 nPoint.size(), Points, getPerimetr(), getArea(), color);
+    }
+    public Figure thisFig (){
+        Creator b = new Creator();
+        return b.create(this.nPoint);
     }
 
 
@@ -149,8 +155,6 @@ area += nPoint.get(i).getX() * nPoint.get(temp).getY() - nPoint.get(i).getY() * 
             point.setY(point.getY() + y); return point;});
         this.nPoint = buffer;
     }
-
-
 
 
 
