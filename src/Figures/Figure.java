@@ -147,15 +147,13 @@ area += nPoint.get(i).getX() * nPoint.get(temp).getY() - nPoint.get(i).getY() * 
         double yC = centre.getY();
         buffer.replaceAll(x -> {x.setX((x.getX() - xC) * factor + xC);
             x.setY((x.getY() - yC) * factor + yC); return x;});
-
     }
+
     public void move (double x, double y){
         ArrayList <Point> buffer = this.nPoint;
         buffer.replaceAll(point -> {point.setX((point.getX() + x));
             point.setY(point.getY() + y); return point;});
         this.nPoint = buffer;
     }
-
-
 
 }

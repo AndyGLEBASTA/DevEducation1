@@ -40,6 +40,8 @@ public class Solution {
         deSerial();
         allSerial(allF);
         allDeSerial();
+        allSerial2(allF);
+        allDeSerial2();
     }
     public static void Serial (Figure f){
 
@@ -90,4 +92,47 @@ public class Solution {
             System.out.println("Ошибка десериализации спика фигур из файла!!");
         }
     }
+    public static void allSerial2 (ArrayList <Figure> allF){
+
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("c:/Figures.dat")))
+        {
+            for(Figure f : allF)
+            oos.writeObject(f);
+            System.out.println("Внимание! Сохранение списка объектов фигур в файл .dat завершено 2!!");
+        }
+        catch(Exception ex){
+            System.out.println("Ошибка сериализации списка фигур 2!!");
+        }
+    }
+    public static void allDeSerial2 ()  {
+        ArrayList<Figure> allF = new ArrayList<>();
+        FileInputStream file = null;
+        try {
+            file = new FileInputStream("c:/Figures.dat");}
+        catch (FileNotFoundException e) {
+            System.out.println("Ошибка поиска файла!");
+        }
+            ObjectInputStream ois = null;
+            try{
+                ois = new ObjectInputStream(file);}
+            catch (IOException e) {
+                System.out.println("Ошибка конвертации файла!");
+            }
+                int i = -1;
+            try {
+                while (file.available() != 0) {
+                    Figure ff = (Figure) ois.readObject();
+                    allF.add(ff);
+                }
+                System.out.println("Считывание списка объектов фигур из файла .dat 2:");
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("Ошибка десериализации спика фигур из файла 2!!");
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+                System.out.println("Ошибка десериализации спика фигур из файла 2!!");
+            }
+            for (Figure x : allF)
+        System.out.println(x);
+        }
 }
