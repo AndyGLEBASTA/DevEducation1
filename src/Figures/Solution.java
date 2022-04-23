@@ -49,7 +49,7 @@ public class Solution {
             System.out.println("Внимание! Сохранение фигуры в файл .dat завершено!!");
         }
         catch(Exception ex){
-            System.out.println("Хрень");
+            System.out.println("Ошибка сериализации фигуры!");
         }
     }
     public static void deSerial (){
@@ -61,7 +61,7 @@ public class Solution {
         }
         catch(Exception ex){
 
-            System.out.println("Опять хрень");
+            System.out.println("Ошибка десериализаци фигуры из файла!!");
         }
     }
     public static void allSerial (ArrayList <Figure> allF){
@@ -73,7 +73,7 @@ public class Solution {
             System.out.println("Внимание! Сохранение списка объектов фигур в файл .dat завершено!!");
         }
         catch(Exception ex){
-            System.out.println("Хрень2");
+            System.out.println("Ошибка сериализации списка фигур!!");
         }
     }
     public static void allDeSerial (){
@@ -87,7 +87,7 @@ public class Solution {
         }
         catch(Exception ex){
 
-            System.out.println("Опять хрень2");
+            System.out.println("Ошибка десериализации спика фигур из файла!!");
         }
     }
 }
