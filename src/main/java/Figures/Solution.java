@@ -1,8 +1,15 @@
 package Figures;
 
 import Figures.Creators.Creator;
+import Figures.Visual.MyFrame;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import javax.swing.*;
+import java.awt.*;
+import Figures.Visual.*;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,6 +51,9 @@ public class Solution {
         allDeSerial();
         allSerial2(allF);
         allDeSerial2();
+        MyFrame f = new MyFrame ("Фигура");
+
+
     }
     public static void Serial (Figure f){
 
@@ -129,12 +139,13 @@ public class Solution {
                 System.out.println("Считывание списка объектов фигур из файла .dat 2:");
             } catch (IOException e) {
                 e.printStackTrace();
-                System.out.println("Ошибка десериализации спика фигур из файла 2!!");
+                System.out.println("Ошибка десериализации списка фигур из файла 2!!");
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
-                System.out.println("Ошибка десериализации спика фигур из файла 2!!");
+                System.out.println("Ошибка десериализации списка фигур из файла 2!!");
             }
             for (Figure x : allF)
         System.out.println(x);
         }
+
 }
