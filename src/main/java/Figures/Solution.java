@@ -19,10 +19,10 @@ public class Solution {
         Creator fabric = new Creator();
         ObjectMapper mapper = new ObjectMapper();
 
-        Point p1 = new Point (1, 1);
-        Point p2 = new Point (1, 3);
-        Point p3 = new Point (5, 1);
-        Point p4 = new Point (5, 3);
+        Point p1 = new Point (100, 100);
+        Point p2 = new Point (300, 300);
+        Point p3 = new Point (100, 300);
+        Point p4 = new Point (300, 100);
         Point p5 = new Point (9, 12);
 
         ArrayList <Point> nPoint1 = new ArrayList(Arrays.asList(p4, p3, p1, p2));
@@ -33,7 +33,7 @@ public class Solution {
         System.out.println(newF);
         newF.move(3, 2.5);
         System.out.println(newF);
-        newF.rotate(115);
+        newF.rotate(0);
         if (newF.nPoint.size() > 2) System.out.println(newF);
         newF.multi(0.5);
 
@@ -51,7 +51,9 @@ public class Solution {
         allDeSerial();
         allSerial2(allF);
         allDeSerial2();
-        MyFrame f = new MyFrame (FromFile);
+
+        MyFrame f = new MyFrame (allF);
+
 
 
     }

@@ -155,5 +155,8 @@ area += nPoint.get(i).getX() * nPoint.get(temp).getY() - nPoint.get(i).getY() * 
             point.setY(point.getY() + y); return point;});
         this.nPoint = buffer;
     }
+    public ArrayList <Point> getPoints (){
+        return this.nPoint;
+    }
 
 }
