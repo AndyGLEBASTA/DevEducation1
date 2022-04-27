@@ -1,6 +1,7 @@
 package Figures;
 
 import Figures.Creators.Creator;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.Arrays;
 public class Solution {
     public static void main(String[] args) throws IOException {
         Creator fabric = new Creator();
+        ObjectMapper mapper = new ObjectMapper();
 
         Point p1 = new Point (1, 1);
         Point p2 = new Point (1, 3);
