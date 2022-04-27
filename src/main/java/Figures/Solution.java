@@ -51,7 +51,7 @@ public class Solution {
         allDeSerial();
         allSerial2(allF);
         allDeSerial2();
-        MyFrame f = new MyFrame ("Фигура");
+        MyFrame f = new MyFrame (FromFile);
 
 
     }
