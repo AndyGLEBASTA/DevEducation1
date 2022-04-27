@@ -6,26 +6,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class MyGraphs extends JPanel {
+public class Axis extends JPanel {
     private int width;
     private int height;
-    private ArrayList <Figure> myFigs;
-    public MyGraphs(ArrayList <Figure> myFigs){
+    public Axis(){
         super();
-        this.myFigs = myFigs;
+
     }
     public void paint (Graphics g) {
         super.paint(g);
-        this.setBackground(Color.WHITE);
-
-        for (var fig : myFigs) {
-            for (int i = 0; i < fig.getPoints().size() - 1; i++) {
-                g.drawLine((int) fig.getPoints().get(i).getX(), (int) fig.getPoints().get(i).getY(),
-                        (int) fig.getPoints().get(i + 1).getX(), (int) fig.getPoints().get(i + 1).getY());
-            }
-            g.drawLine((int) fig.getPoints().get(fig.getPoints().size() - 1).getX(), (int) fig.getPoints().get(fig.getPoints().size() - 1).getY(),
-                    (int) fig.getPoints().get(0).getX(), (int) fig.getPoints().get(0).getY());
-        }
         width = getWidth(); // сохраняем текущую ширину панели
         height = getHeight(); // и высоту
         drawGrid(g); // рисуем сетку
@@ -57,7 +46,6 @@ public class MyGraphs extends JPanel {
         g.drawLine(width/2, 0, width/2, height);
         g.drawLine(0, height/2, width, height/2);
     }
-
 
 
 
