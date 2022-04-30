@@ -19,10 +19,10 @@ public class Solution {
         Creator fabric = new Creator();
         ObjectMapper mapper = new ObjectMapper();
 
-        Point p1 = new Point (100, 100);
-        Point p2 = new Point (300, 300);
-        Point p3 = new Point (100, 300);
-        Point p4 = new Point (300, 100);
+        Point p1 = new Point (500, 500);
+        Point p2 = new Point (500, 0);
+        Point p3 = new Point (0, 500);
+        Point p4 = new Point (0, 0);
         Point p5 = new Point (9, 12);
 
         ArrayList <Point> nPoint1 = new ArrayList(Arrays.asList(p4, p3, p1, p2));

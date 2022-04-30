@@ -15,6 +15,8 @@ public class Axis extends JPanel {
     }
     public void paint (Graphics g) {
         super.paint(g);
+
+
         width = getWidth(); // сохраняем текущую ширину панели
         height = getHeight(); // и высоту
         drawGrid(g); // рисуем сетку

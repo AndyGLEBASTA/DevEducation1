@@ -17,35 +17,40 @@ public class MyFrame extends JFrame implements ActionListener {
 
     public MyFrame(ArrayList<Figure> x) {
         this.x = x;
-        Box panel = Box.createVerticalBox();
         setTitle("Вывод Фигуры");
+        setButton1();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(1000, 750);
+
+        setLayout(null);
+        setVisible(true);
+    }
+
+    public void setAxis(){
+        Container mainContainer = this.getContentPane();
+        this.axis = new Axis ();
+        this.axis.setBackground(Color.WHITE);
+        this.axis.setBounds(300, 50, 600, 600);
+        mainContainer.add(axis);
+    }
+
+    public void setButton1 (){
         this.button = new JButton("Создать фигуры");
         button.setBackground(Color.pink);
         button.setBounds(50, 50, 200, 100);
         add(button);
         button.addActionListener(this);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1366, 768);
-        setLayout(null);
-        setVisible(true);
-        Container mainContainer = this.getContentPane();
-        mainContainer.setLayout(new BorderLayout());
-        axis = new Axis ();
-        axis.setBackground(Color.WHITE);
-        axis.setBounds(400, 100, 600, 600);
-        mainContainer.add(axis);
-
-
     }
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
         MyGraphs graphs = new MyGraphs (this.x);
-
+        graphs.setVisible(true);
         this.add(graphs);
-        this.setVisible(true);
+
+
+
 //        MyGraphs allG = new MyGraphs(this.x);
 //        Container mainContainer = this.getContentPane();
 //        mainContainer.setLayout(new BorderLayout());

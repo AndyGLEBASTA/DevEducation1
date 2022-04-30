@@ -1,5 +1,6 @@
 package Figures.Visual;
 
+import Figures.Cycle;
 import Figures.Figure;
 
 import javax.swing.*;
@@ -17,19 +18,26 @@ public class MyGraphs extends JPanel {
     public void paint (Graphics g) {
         super.paint(g);
         this.setBackground(Color.WHITE);
-
+//        this.setBounds(0, 0, 600, 600);
+this.setSize(600, 600);
         for (var fig : myFigs) {
-            for (int i = 0; i < fig.getPoints().size() - 1; i++) {
-                g.drawLine((int) fig.getPoints().get(i).getX(), (int) fig.getPoints().get(i).getY(),
-                        (int) fig.getPoints().get(i + 1).getX(), (int) fig.getPoints().get(i + 1).getY());
-            }
-            g.drawLine((int) fig.getPoints().get(fig.getPoints().size() - 1).getX(), (int) fig.getPoints().get(fig.getPoints().size() - 1).getY(),
-                    (int) fig.getPoints().get(0).getX(), (int) fig.getPoints().get(0).getY());
+//            if (fig.getPoints().size() == 2) {
+//                g.drawOval((int) fig.getPoints().get(0).getX(), (int) fig.getPoints().get(0).getY(),
+//                        (int) ((Cycle) fig).getRadius(), (int) ((Cycle) fig).getRadius());
+//            } else {
+                for (int i = 0; i < fig.getPoints().size() - 1; i++) {
+                    g.drawLine((int) fig.getPoints().get(i).getX(), (int) fig.getPoints().get(i).getY(),
+                            (int) fig.getPoints().get(i + 1).getX(), (int) fig.getPoints().get(i + 1).getY());
+                }
+                g.drawLine((int) fig.getPoints().get(fig.getPoints().size() - 1).getX(), (int) fig.getPoints().get(fig.getPoints().size() - 1).getY(),
+                        (int) fig.getPoints().get(0).getX(), (int) fig.getPoints().get(0).getY());
+
         }
-        width = getWidth(); // сохраняем текущую ширину панели
-        height = getHeight(); // и высоту
-        drawGrid(g); // рисуем сетку
-        drawAxis(g); // рисуем оси
+//        width = getWidth(); // сохраняем текущую ширину панели
+//        height = getHeight(); // и высоту
+//        drawGrid(g); // рисуем сетку
+//        drawAxis(g); // рисуем оси
+
     }
 
     private void drawGrid(Graphics g) {
