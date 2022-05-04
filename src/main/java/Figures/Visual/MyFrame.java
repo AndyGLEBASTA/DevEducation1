@@ -1,18 +1,19 @@
 package Figures.Visual;
 
 
+import Figures.Figure;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import Figures.Figure;
-
 public class MyFrame extends JFrame implements ActionListener {
     private JButton button;
     private Axis axis;
     private ArrayList<Figure> x;
+    private Container grafCont;
 
 
     public MyFrame(ArrayList<Figure> x) {
@@ -22,6 +23,7 @@ public class MyFrame extends JFrame implements ActionListener {
         setTitle("Вывод Фигуры");
         setAxis();
         setButton1();
+        setButton2();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 800);
         setLayout(null);
@@ -44,25 +46,34 @@ public class MyFrame extends JFrame implements ActionListener {
         add(button);
         button.addActionListener(this);
     }
+    public void setButton2 (){
+        this.button = new JButton("Очистить");
+        button.setBackground(Color.pink);
+        button.setBounds(0, 101, 100, 100);
+        add(button);
+        button.addActionListener(this::actionPerformed2);
+    }
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
         MyGraphs graphs = new MyGraphs (this.x);
-        Container mainContainer = this.getContentPane();
-        mainContainer.setLayout(new BorderLayout());
+        grafCont = this.getContentPane();
+        grafCont.setLayout(new BorderLayout());
         this.add(graphs);
-        this.setVisible(true);
         graphs.setBounds(100, 0, 700, 700);
-        mainContainer.add(graphs, BorderLayout.CENTER);
-//        MyGraphs allG = new MyGraphs(this.x);
-//        Container mainContainer = this.getContentPane();
-//        mainContainer.setLayout(new BorderLayout());
-//        MyGraphs myG = new MyGraphs(this.x);
-//        myG.setBackground(Color.WHITE);
-//        mainContainer.add(myG);
+        grafCont.add(graphs, BorderLayout.CENTER);
 
 
     }
+    public void actionPerformed2 (ActionEvent e) {
+        this.removeAll();
+        this.repaint();
+
+        setAxis();
+
+
+    }
+
 }
