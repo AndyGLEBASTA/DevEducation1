@@ -19,17 +19,20 @@ public class Solution {
         Creator fabric = new Creator();
         ObjectMapper mapper = new ObjectMapper();
 
-        Point p1 = new Point (500, 500);
-        Point p2 = new Point (500, 0);
+        Point p1 = new Point (300, 300);
+        Point p2 = new Point (600, 300);
         Point p3 = new Point (0, 500);
         Point p4 = new Point (0, 0);
         Point p5 = new Point (9, 12);
 
-        ArrayList <Point> nPoint1 = new ArrayList(Arrays.asList(p4, p3, p1, p2));
-        ArrayList <Point> nPoint2 = new ArrayList(Arrays.asList(p1, p2));
+        ArrayList <Point> nPoint1 = new ArrayList(Arrays.asList(p1, p3, p2));
+        ArrayList <Point> nPoint2 = new ArrayList(Arrays.asList(p4, p5));
+        ArrayList <Figure> allF1 = new ArrayList<>();
         ArrayList <Figure> allF = new ArrayList<>();
         Figure newF = fabric.create(nPoint1);
         Figure newF2 = fabric.create(nPoint2);
+        allF1.add(newF);
+        allF1.add(newF2);
         System.out.println(newF);
         newF.move(3, 2.5);
         System.out.println(newF);
@@ -52,7 +55,7 @@ public class Solution {
         allSerial2(allF);
         allDeSerial2();
 
-        MyFrame f = new MyFrame (allF);
+        MyFrame f = new MyFrame (allF1);
 
 
 

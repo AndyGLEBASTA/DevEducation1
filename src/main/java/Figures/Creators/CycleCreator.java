@@ -9,7 +9,7 @@ public class CycleCreator implements iFigureCreator{
     @Override
     public Figure create(ArrayList<Point> points) {
         Figure cycle = new Cycle (points);
-        cycle.setColor("красный");
+        cycle.setColor("#FF00FF");
         return cycle;
     }
 

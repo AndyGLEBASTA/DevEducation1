@@ -7,37 +7,53 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+
+
 public class MyGraphs extends JPanel {
     private int width;
     private int height;
+    private Color color = Color.GREEN;
     private ArrayList <Figure> myFigs;
     public MyGraphs(ArrayList <Figure> myFigs){
         super();
         this.myFigs = myFigs;
+
     }
     public void paint (Graphics g) {
         super.paint(g);
         this.setBackground(Color.WHITE);
-//        this.setBounds(0, 0, 600, 600);
-this.setSize(600, 600);
-        for (var fig : myFigs) {
-//            if (fig.getPoints().size() == 2) {
-//                g.drawOval((int) fig.getPoints().get(0).getX(), (int) fig.getPoints().get(0).getY(),
-//                        (int) ((Cycle) fig).getRadius(), (int) ((Cycle) fig).getRadius());
-//            } else {
+        width = this.getWidth(); // сохраняем текущую ширину панели
+        height = this.getHeight(); // и высоту
+
+        drawGrid(g); // рисуем сетку
+        drawAxis(g); // рисуем оси
+        drawGraph(g);
+    }
+    private void drawGraph(Graphics g){
+        g.setColor(color);
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setStroke(new BasicStroke(5));
+        for (var fig : this.myFigs) {
+            if (fig.getPoints().size() == 2) {
+                g.drawOval((int)  fig.getPoints().get(0).getX() -54 , (int)  fig.getPoints().get(0).getY() - 84,
+                        (int) ((Cycle)fig).getRadius() * 2, (int) ((Cycle)fig).getRadius() * 2);
+                setColor("#ff0000");
+            } else {
+
                 for (int i = 0; i < fig.getPoints().size() - 1; i++) {
-                    g.drawLine((int) fig.getPoints().get(i).getX(), (int) fig.getPoints().get(i).getY(),
-                            (int) fig.getPoints().get(i + 1).getX(), (int) fig.getPoints().get(i + 1).getY());
+                    g.drawLine((int) fig.getPoints().get(i).getX() + width/2 - 103,
+                            (int) fig.getPoints().get(i).getY()+ height/2 - 135,
+                            (int) fig.getPoints().get(i + 1).getX()+ width/2 - 103,
+                            (int) fig.getPoints().get(i + 1).getY()+ height/2 - 135);
                 }
-                g.drawLine((int) fig.getPoints().get(fig.getPoints().size() - 1).getX(), (int) fig.getPoints().get(fig.getPoints().size() - 1).getY(),
-                        (int) fig.getPoints().get(0).getX(), (int) fig.getPoints().get(0).getY());
+                g.drawLine((int) fig.getPoints().get(fig.getPoints().size() - 1).getX()+  width/2 - 103,
+                        (int)fig.getPoints().get(fig.getPoints().size() - 1).getY()+ height/2 - 135,
+                        (int) fig.getPoints().get(0).getX()+ + width/2 - 103,
+                        (int) fig.getPoints().get(0).getY()+ height/2 - 135);
+
+            }
 
         }
-//        width = getWidth(); // сохраняем текущую ширину панели
-//        height = getHeight(); // и высоту
-//        drawGrid(g); // рисуем сетку
-//        drawAxis(g); // рисуем оси
-
     }
 
     private void drawGrid(Graphics g) {
@@ -66,7 +82,13 @@ this.setSize(600, 600);
         g.drawLine(0, height/2, width, height/2);
     }
 
-
-
+    public void setColor(String color) {
+        try {
+            this.color = Color.decode(color);
+        } catch (Exception e) {
+            this.color = Color.BLACK;
+        }
+        repaint();
+    }
 
 }
