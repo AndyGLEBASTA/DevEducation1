@@ -49,7 +49,7 @@ public class Solution {
 //        allSerial2(allF);
 //        allDeSerial2();
 
-        MyFrame f = new MyFrame (allF1);
+        MyFrame f = new MyFrame ();
 
 
 
