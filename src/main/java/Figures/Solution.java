@@ -4,12 +4,6 @@ import Figures.Creators.Creator;
 import Figures.Visual.MyFrame;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import javax.swing.*;
-import java.awt.*;
-import Figures.Visual.*;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,11 +13,11 @@ public class Solution {
         Creator fabric = new Creator();
         ObjectMapper mapper = new ObjectMapper();
 
-        Point p1 = new Point (300, 300);
-        Point p2 = new Point (600, 300);
-        Point p3 = new Point (0, 500);
+        Point p1 = new Point (300, 0);
+        Point p2 = new Point (300, 300);
+        Point p3 = new Point (0, 300);
         Point p4 = new Point (0, 0);
-        Point p5 = new Point (9, 12);
+        Point p5 = new Point (150, 150);
 
         ArrayList <Point> nPoint1 = new ArrayList(Arrays.asList(p1, p3, p2));
         ArrayList <Point> nPoint2 = new ArrayList(Arrays.asList(p4, p5));
@@ -33,29 +27,29 @@ public class Solution {
         Figure newF2 = fabric.create(nPoint2);
         allF1.add(newF);
         allF1.add(newF2);
-        System.out.println(newF);
-        newF.move(3, 2.5);
-        System.out.println(newF);
-        newF.rotate(0);
-        if (newF.nPoint.size() > 2) System.out.println(newF);
-        newF.multi(0.5);
+//        System.out.println(newF);
+//       newF.move(3, 2.5);
+//        System.out.println(newF);
+//        newF.rotate(0);
+//        if (newF.nPoint.size() > 2) System.out.println(newF);
+//        newF.multi(0.5);
 
-        newF.OutPut();
-        newF.InPut();
-        System.out.println("Запарсили из result.txt:");
-        Figure FromFile = fabric.createFromFile();
-        System.out.println(FromFile);
-        System.out.println(newF);
-        allF.add(newF);
-        allF.add(newF2);
-        Serial(newF);
-        deSerial();
-        allSerial(allF);
-        allDeSerial();
-        allSerial2(allF);
-        allDeSerial2();
+//        newF.OutPut();
+//        newF.InPut();
+//        System.out.println("Запарсили из result.txt:");
+//        Figure FromFile = fabric.createFromFile();
+//        System.out.println(FromFile);
+//        System.out.println(newF);
+//        allF.add(newF);
+//        allF.add(newF2);
+//        Serial(newF);
+//        deSerial();
+//        allSerial(allF);
+//        allDeSerial();
+//        allSerial2(allF);
+//        allDeSerial2();
 
-        MyFrame f = new MyFrame (allF1);
+        MyFrame f = new MyFrame ();
 
 
 

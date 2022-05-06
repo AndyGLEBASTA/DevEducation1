@@ -35,21 +35,22 @@ public class MyGraphs extends JPanel {
         g2.setStroke(new BasicStroke(5));
         for (var fig : this.myFigs) {
             if (fig.getPoints().size() == 2) {
-                g.drawOval((int)  fig.getPoints().get(0).getX() -54 , (int)  fig.getPoints().get(0).getY() - 84,
+                g.drawOval((int)  fig.getPoints().get(0).getX() + width/2 - (int) ((Cycle)fig).getRadius(),
+                        (int)  fig.getPoints().get(0).getY() + height/2 - (int) ((Cycle)fig).getRadius(),
                         (int) ((Cycle)fig).getRadius() * 2, (int) ((Cycle)fig).getRadius() * 2);
                 setColor("#ff0000");
             } else {
 
                 for (int i = 0; i < fig.getPoints().size() - 1; i++) {
-                    g.drawLine((int) fig.getPoints().get(i).getX() + width/2 - 103,
-                            (int) fig.getPoints().get(i).getY()+ height/2 - 135,
-                            (int) fig.getPoints().get(i + 1).getX()+ width/2 - 103,
-                            (int) fig.getPoints().get(i + 1).getY()+ height/2 - 135);
+                    g.drawLine((int) fig.getPoints().get(i).getX() + width/2 ,
+                            height/2 - (int) fig.getPoints().get(i).getY(),
+                            (int) fig.getPoints().get(i + 1).getX()+ width/2 ,
+                             height/2 - (int) fig.getPoints().get(i + 1).getY());
                 }
-                g.drawLine((int) fig.getPoints().get(fig.getPoints().size() - 1).getX()+  width/2 - 103,
-                        (int)fig.getPoints().get(fig.getPoints().size() - 1).getY()+ height/2 - 135,
-                        (int) fig.getPoints().get(0).getX()+ + width/2 - 103,
-                        (int) fig.getPoints().get(0).getY()+ height/2 - 135);
+                g.drawLine((int) fig.getPoints().get(fig.getPoints().size() - 1).getX() +  width/2,
+                        height/2 - (int)fig.getPoints().get(fig.getPoints().size() - 1).getY(),
+                        (int) fig.getPoints().get(0).getX()+  width/2 ,
+                        height/2 - (int) fig.getPoints().get(0).getY() );
 
             }
 
