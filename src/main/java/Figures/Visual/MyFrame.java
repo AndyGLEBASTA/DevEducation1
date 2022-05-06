@@ -15,6 +15,9 @@ public class MyFrame extends JFrame implements ActionListener {
     private JButton button1;
     private JButton button2;
     private JButton button3;
+    private JButton button4;
+    private JButton button5;
+    private JButton button6;
     private Axis axis;
     private ArrayList<Figure> x = new ArrayList<>();
     private Container grafCont;
@@ -36,7 +39,7 @@ private JTextField textx;
     setButton2();
     setButton3();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 800);
+        setSize(1200, 800);
         setLayout(null);
         setVisible(true);
 
@@ -66,16 +69,16 @@ mainContainer.add (statusLabel);
         mainContainer.setLayout(new BorderLayout());
         this.axis = new Axis ();
         this.axis.setBackground(Color.WHITE);
-        this.axis.setBounds(100, 0, 700, 700);
+        this.axis.setBounds(500, 0, 700, 700);
         mainContainer.add(axis, BorderLayout.CENTER);
 
     }
     public void setButton1 (){
         this.button1 = new JButton("Добавить");
         button1.setBackground(Color.pink);
-        Font BigFontTR = new Font("TimesRoman", Font.BOLD, 8);
+        Font BigFontTR = new Font("TimesRoman", Font.BOLD, 10);
         button1.setFont(BigFontTR);
-        button1.setBounds(5, 135, 80, 20);
+        button1.setBounds(5, 135, 100, 50);
         add(button1);
         button1.addActionListener(new ActionListener() {
             @Override
@@ -83,29 +86,45 @@ mainContainer.add (statusLabel);
                 int corX = Integer.parseInt(textx.getText());
                 int corY = Integer.parseInt(texty.getText());
                 newArr.add(new Point(corX, corY));
+                textx.setText("");
+                texty.setText("");
             }
         });
     }
     public void setButton2 (){
-        this.button2 = new JButton("Сохранить");
+        this.button2 = new JButton("Сохранить фигуру");
         button2.setBackground(Color.red);
         Font BigFontTR = new Font("TimesRoman", Font.BOLD, 8);
         button2.setFont(BigFontTR);
-        button2.setBounds(5, 170, 80, 20);
+        button2.setBounds(5, 185, 100, 50);
         add(button2);
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ArrayList <Point> newArr2 = newArr;
+                ArrayList <Point> newArr2 = new ArrayList<>();
+                for (int i = 0; i < newArr.size(); i++)
+                newArr2.add(newArr.get(i));
                 x.add (newFabric.create(newArr2));
-                
-
+                System.out.println(newArr);
+                newArr = new ArrayList<>();
             }
         });
     }
     public void setButton3 (){
-        this.button3 = new JButton("Создать");
+
+        this.button3 = new JButton("Создать все");
         button3.setBackground(Color.blue);
+        button3.setForeground(Color.YELLOW);
+        Font BigFontTR = new Font("TimesRoman", Font.BOLD, 10);
+        button3.setFont(BigFontTR);
+        button3.setBounds(5, 235, 100, 50);
+        add(button3);
+        button3.addActionListener(this);
+    }
+    public void setButton4 (){
+
+        this.button3 = new JButton("Создать");
+        button3.setBackground(Color.WHITE);
         Font BigFontTR = new Font("TimesRoman", Font.BOLD, 8);
         button3.setFont(BigFontTR);
         button3.setBounds(5, 195, 80, 20);
@@ -114,14 +133,15 @@ mainContainer.add (statusLabel);
     }
 
 
+
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        System.out.println(newArr);
         MyGraphs graphs = new MyGraphs (this.x);
         grafCont = this.getContentPane();
         grafCont.setLayout(new BorderLayout());
         this.add(graphs);
-        graphs.setBounds(100, 0, 700, 700);
+        graphs.setBounds(500, 0, 700, 700);
         grafCont.add(graphs, BorderLayout.CENTER);
 
 
