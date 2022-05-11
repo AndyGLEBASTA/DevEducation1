@@ -229,7 +229,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
     public void setButton7() {
 
-        this.button7 = new JButton("Массштаб:");
+        this.button7 = new JButton("Масштаб:");
         button7.setBackground(Color.YELLOW);
         Font BigFontTR = new Font("TimesRoman", Font.BOLD, 10);
         button7.setFont(BigFontTR);
