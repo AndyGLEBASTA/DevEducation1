@@ -1,10 +1,7 @@
 package Figures.Visual;
 
-import Figures.Figure;
-
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class Axis extends JPanel {
     private int width;
@@ -17,6 +14,7 @@ public class Axis extends JPanel {
         super.paint(g);
         width = getWidth(); // сохраняем текущую ширину панели
         height = getHeight(); // и высоту
+        this.setBounds(500, 0, 700, 700);
         drawGrid(g); // рисуем сетку
         drawAxis(g); // рисуем оси
     }
