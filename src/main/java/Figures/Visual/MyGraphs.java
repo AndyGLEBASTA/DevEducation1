@@ -14,17 +14,26 @@ public class MyGraphs extends JPanel {
     private int height;
     private Color color = Color.GREEN;
     private ArrayList <Figure> myFigs;
+    private Figure myFig;
+    private ArrayList <Figure> myBuf;
     public MyGraphs(ArrayList <Figure> myFigs){
         super();
         this.myFigs = myFigs;
+        this.myBuf = myFigs;
 
+    }
+
+    public MyGraphs(Figure myFig){
+        super();
+        this.myBuf = new ArrayList<>();
+        this.myBuf.add(myFig);
     }
     public void paint (Graphics g) {
         super.paint(g);
         this.setBackground(Color.WHITE);
         width = this.getWidth(); // сохраняем текущую ширину панели
         height = this.getHeight(); // и высоту
-
+        this.setBounds(500, 0, 700, 700);
         drawGrid(g); // рисуем сетку
         drawAxis(g); // рисуем оси
         drawGraph(g);
@@ -33,8 +42,8 @@ public class MyGraphs extends JPanel {
         g.setColor(color);
         Graphics2D g2 = (Graphics2D) g;
         g2.setStroke(new BasicStroke(5));
-        for (var fig : this.myFigs) {
-            if (fig.getPoints().size() == 2) {
+        for (var fig : this.myBuf) {
+                        if (fig.getPoints().size() == 2) {
                 g.drawOval((int)  fig.getPoints().get(0).getX() + width/2 - (int) ((Cycle)fig).getRadius(),
                         (int)  fig.getPoints().get(0).getY() + height/2 - (int) ((Cycle)fig).getRadius(),
                         (int) ((Cycle)fig).getRadius() * 2, (int) ((Cycle)fig).getRadius() * 2);
@@ -89,7 +98,7 @@ public class MyGraphs extends JPanel {
         } catch (Exception e) {
             this.color = Color.BLACK;
         }
-        repaint();
+
     }
 
 }

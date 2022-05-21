@@ -126,7 +126,7 @@ area += nPoint.get(i).getX() * nPoint.get(temp).getY() - nPoint.get(i).getY() * 
                                      // Y'=Yo +(X1-Xo)∗sin(ϕ)+(Y1-Yo)∗cos(ϕ)
         ArrayList <Point> buffer = this.nPoint;
 
-        if (ang > 0 && ang < 360 && buffer.size() > 2){
+        if (ang > -360 && ang < 360 && buffer.size() > 2){
             Point centre = this.findBarCentre();
             double xC = centre.getX();
             double yC = centre.getY();
@@ -140,13 +140,27 @@ area += nPoint.get(i).getX() * nPoint.get(temp).getY() - nPoint.get(i).getY() * 
         else
             System.out.println("Ошибка ввода градусов!");
     }
-    public void multi (double factor){
-        ArrayList <Point> buffer = this.nPoint;
-        Point centre = this.findBarCentre();
-        double xC = centre.getX();
-        double yC = centre.getY();
-        buffer.replaceAll(x -> {x.setX((x.getX() - xC) * factor + xC);
-            x.setY((x.getY() - yC) * factor + yC); return x;});
+    public void multi (double factor) {
+        if (this.nPoint.size() > 2) {
+            ArrayList<Point> buffer = this.nPoint;
+            Point centre = this.findBarCentre();
+            double xC = centre.getX();
+            double yC = centre.getY();
+            buffer.replaceAll(x -> {
+                x.setX((x.getX() - xC) * factor + xC);
+                x.setY((x.getY() - yC) * factor + yC);
+                return x;
+            });
+        }
+        if (this.nPoint.size() == 2) {
+            Point one = nPoint.get(0);
+            Point two = nPoint.get(1);
+            double radius = Math.sqrt((Math.pow((two.getX() - one.getX()), 2) + Math.pow((two.getY() - one.getY()), 2)))
+                    * factor;
+            this.nPoint.get(1).setX(0 + nPoint.get(0).getX());
+            this.nPoint.get(1).setY(radius + nPoint.get(0).getY());
+        }
+
     }
 
     public void move (double x, double y){
